@@ -21,7 +21,7 @@
 
 `examples/format-only/` 只用于演示目录格式，不代表真实蒸馏效果。不要用少量短文评估这个 skill 的上限。
 
-## 怎么用
+## 快速上手
 
 1. 让 agent 抓取或手动准备20 篇以上的完整文章，放入命名为 `raw/` 或 `raw-corpus/`的文件夹。
 2. 让 agent 使用 `writing-dna-skill`，或阅读 `SKILL.md` / `写作蒸馏器.skill.md`，并按流程蒸馏所有文章。
