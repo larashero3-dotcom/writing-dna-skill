@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+dist/
+tmp/
+
+# Local corpora can contain copyrighted or private source texts.
+raw-corpus/
+corpus/
+private/
+
+# Generated local outputs
+*.log

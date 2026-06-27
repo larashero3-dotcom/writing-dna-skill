@@ -1,0 +1,7 @@
+interface:
+  display_name: "写作蒸馏器"
+  short_description: "蒸馏文章语料，生成可复用写作 DNA"
+  default_prompt: "Use $writing-dna-skill to distill my article corpus into Writing-DNA.md."
+
+policy:
+  allow_implicit_invocation: true

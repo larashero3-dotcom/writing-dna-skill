@@ -1,0 +1,13 @@
+{
+  "title": "文章标题",
+  "date": "YYYY-MM-DD",
+  "author": "作者姓名",
+  "column": "内容系列名称",
+  "article_type": "访谈 | 深度分析 | 短评 | 观察 | 综述",
+  "topic_tags": ["标签1", "标签2"],
+  "hook_type": "问题式 | 场景式 | 数据式 | 观点式 | 悬念式",
+  "structure_pattern": "总-分-总 | 时间线 | 对比式 | Q&A",
+  "source_types": ["一手素材", "公开资料", "案例对比"],
+  "word_count": 0,
+  "notable": "值得标注的特殊之处（可留空）"
+}
