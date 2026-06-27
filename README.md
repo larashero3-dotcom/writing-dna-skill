@@ -23,16 +23,15 @@
 
 ## 怎么用
 
-1. 复制 `templates/author-corpus/` 作为你的作者语料目录。
-2. 把完整文章放入 `raw/` 或 `raw-corpus/`。
-3. 让 agent 使用 `writing-dna-skill`，或阅读 `SKILL.md` / `写作蒸馏器.skill.md`，并按流程蒸馏所有文章。
-4. 等待 agent 输出：
+1. 让 agent 抓取或手动准备20 篇以上的完整文章，放入命名为 `raw/` 或 `raw-corpus/`的文件夹。
+2. 让 agent 使用 `writing-dna-skill`，或阅读 `SKILL.md` / `写作蒸馏器.skill.md`，并按流程蒸馏所有文章。
+3. 等待 agent 输出：
    - `语言DNA.md`
    - `文章结构模板.md`
    - `写作视角与认知框架.md`
    - `视觉风格指南.md`
    - `Writing-DNA.md`
-5. 后续写作前，让 agent 先重新阅读所有蒸馏产物，再按该风格写作。
+4. 后续写作前，让 agent 先重新阅读所有蒸馏产物，再按该风格写作。
 
 ## 重要边界
 
