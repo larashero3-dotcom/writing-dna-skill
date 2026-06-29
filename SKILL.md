@@ -11,9 +11,7 @@ Use this skill to distill a reusable Writing DNA from a corpus of complete artic
 
 Require enough source material before claiming a reliable style:
 
-- Use at least 30 complete articles.
-- Prefer 80-100 complete articles for stronger results.
-- Prefer articles longer than 1000 Chinese characters or words each.
+- Use at least 20 complete articles.
 - Use `.md` or `.txt` files in `raw/` or `raw-corpus/`.
 - Do not place unauthorized source articles in a public repository.
 
