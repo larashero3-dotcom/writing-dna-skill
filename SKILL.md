@@ -1,6 +1,6 @@
 ---
 name: writing-dna-skill
-description: Distill reusable writing style rules from a corpus of complete articles. Use when the user wants to analyze 30+ complete articles and extract language DNA, article structures, topic logic, material strategy, cognitive frame, visual style, and a Writing-DNA.md document for style-consistent writing.
+description: Distill reusable writing style rules from a corpus of complete articles. Use when the user wants to analyze at least 20 complete articles and extract language DNA, article structures, topic logic, material strategy, cognitive frame, visual style, and a Writing-DNA.md document for style-consistent writing.
 ---
 
 # 写作蒸馏器
