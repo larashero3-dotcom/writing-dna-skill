@@ -2,6 +2,8 @@
 
 中文 | [English](README.en.md)
 
+[![写作蒸馏器.skill：将任意作者的写作风格蒸馏成 Agent 可复用的 Writing DNA](assets/writing-dna-hero-zh.png)](https://moxt.ai/zh-CN/hub?view=skill&id=writing-dna-skill)
+
 英文名：`writing-dna-skill`
 
 我们的宗旨是：快乐写作。
@@ -10,7 +12,9 @@
 
 它并不是简单的“模仿某某风格”提示词，整个 skill 包含了一套完整的蒸馏流程，让 agent 把一批完整文章拆解成可复用的 Writing DNA，包括语言、结构、选题、素材、认知框架与视觉风格。蒸馏完成后，agent 可以在写作前重新读取这些风格文档，从而更稳定地复刻目标写作风格。
 
-该 skill 在 moxt.ai 制作。
+该 skill 在 [moxt.ai](https://moxt.ai) 制作。
+
+> [**在 MoxtHub 打开写作蒸馏器.skill →**](https://moxt.ai/zh-CN/hub?view=skill&id=writing-dna-skill)
 
 ## 它解决什么问题
 
@@ -108,7 +112,7 @@
 
 ## 快速上手
 
-推荐在 [moxt.ai](https://moxt.ai) 使用这个 skill：它拥有强大的上下文空间和 AI 原生的文件格式，方便 agent 处理长文内容。
+推荐直接在 [MoxtHub 打开 `writing-dna-skill`](https://moxt.ai/zh-CN/hub?view=skill&id=writing-dna-skill)：Moxt 拥有强大的上下文空间和 AI 原生的文件格式，方便 agent 处理长文内容。
 
 1. 让 agent 抓取或手动准备至少 20 篇完整文章，放入命名为 `raw/` 或 `raw-corpus/` 的文件夹。
 2. 让 agent 使用 `writing-dna-skill`，或阅读 `SKILL.md` / `写作蒸馏器.skill.md`，并按流程蒸馏所有文章。
@@ -185,5 +189,7 @@ writing-dna-skill/
 ```
 
 ## License
+
+[**在 MoxtHub 使用 writing-dna-skill →**](https://moxt.ai/zh-CN/hub?view=skill&id=writing-dna-skill)
 
 MIT

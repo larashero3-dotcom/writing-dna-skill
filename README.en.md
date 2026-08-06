@@ -2,6 +2,8 @@
 
 [中文](README.md) | English
 
+[![Writing DNA Distiller: distill any author's writing style into reusable Writing DNA for AI agents](assets/writing-dna-hero-en.png)](https://moxt.ai/hub?view=skill&id=writing-dna-skill)
+
 Skill name: `writing-dna-skill`
 
 An agent skill for distilling the writing style of any author or publication into reusable rules.
@@ -9,6 +11,8 @@ An agent skill for distilling the writing style of any author or publication int
 This is not a simple "write like this person" prompt. It gives an agent a complete distillation workflow for turning a corpus of full articles into reusable Writing DNA: language, structure, topic selection, source strategy, cognitive frames, and visual style. Before writing, the agent can reread these documents to reproduce the target style with greater consistency.
 
 This skill was created at [moxt.ai](https://moxt.ai).
+
+> [**Open Writing DNA Distiller on MoxtHub →**](https://moxt.ai/hub?view=skill&id=writing-dna-skill)
 
 ## The Problem It Solves
 
@@ -106,7 +110,7 @@ author-or-publication/
 
 ## Quick Start
 
-We recommend using this skill on [moxt.ai](https://moxt.ai), where the large context window and AI-native file workflow make it easier for an agent to process complete long-form corpora.
+We recommend opening [`writing-dna-skill` directly on MoxtHub](https://moxt.ai/hub?view=skill&id=writing-dna-skill), where Moxt's large context window and AI-native file workflow make it easier for an agent to process complete long-form corpora.
 
 1. Collect or ask an agent to collect at least 20 complete articles and place them in `raw/` or `raw-corpus/`.
 2. Ask the agent to use `writing-dna-skill`, or to read `SKILL.md` and `写作蒸馏器.skill.md`, before processing the corpus.
@@ -184,5 +188,7 @@ writing-dna-skill/
 ```
 
 ## License
+
+[**Use writing-dna-skill on MoxtHub →**](https://moxt.ai/hub?view=skill&id=writing-dna-skill)
 
 MIT
