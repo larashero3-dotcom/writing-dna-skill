@@ -1,5 +1,7 @@
 # 写作蒸馏器.skill
 
+中文 | [English](README.en.md)
+
 英文名：`writing-dna-skill`
 
 一个用于蒸馏任意账号/作者写作风格的 agent skill。
@@ -157,6 +159,7 @@
 writing-dna-skill/
 ├── SKILL.md
 ├── README.md
+├── README.en.md
 ├── LICENSE
 ├── agents/
 │   └── openai.yaml
