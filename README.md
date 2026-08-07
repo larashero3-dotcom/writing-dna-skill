@@ -38,6 +38,14 @@
 - 对比不同作者在同一议题上的表达差异
 - 给 agent/AI 提供更稳定的风格复刻上下文
 
+## 中英文产物
+
+这个 skill 会将“对话语言”和“产物语言”分开处理。例如，用户可以用中文下达任务，但为英文 Newsletter 生成英文 Writing DNA。
+
+- 中文产物使用 `templates/author-corpus/zh/` 和中文文件名。
+- 英文产物使用 `templates/author-corpus/en/` 和英文文件名。
+- 用户明确指定时以用户选择为准，否则跟随语料的主要语言。
+
 ## 它能分析什么
 
 这个 skill 会尽量把“风格”从一个模糊感受，拆成可以被记录、复用和检查的规则。它不只看文字表面的语气，也会看文章为什么这样写、如何组织材料、如何形成判断。
@@ -115,7 +123,7 @@
 推荐直接在 [MoxtHub 打开 `writing-dna-skill`](https://moxt.ai/zh-CN/hub?view=skill&id=writing-dna-skill)：Moxt 拥有强大的上下文空间和 AI 原生的文件格式，方便 agent 处理长文内容。
 
 1. 让 agent 抓取或手动准备至少 20 篇完整文章，放入命名为 `raw/` 或 `raw-corpus/` 的文件夹。
-2. 让 agent 使用 `writing-dna-skill`，或阅读 `SKILL.md` / `写作蒸馏器.skill.md`，并按流程蒸馏所有文章。
+2. 让 agent 使用 `writing-dna-skill`，或完整阅读 `SKILL.md`，并按流程蒸馏所有文章。
 3. 等待 agent 输出：
    - `语言DNA.md`
    - `文章结构模板.md`
@@ -171,19 +179,15 @@ writing-dna-skill/
 ├── LICENSE
 ├── agents/
 │   └── openai.yaml
-├── 写作蒸馏器.skill.md
+├── references/
+│   └── workflow.en.md
 ├── docs/
 │   ├── release-checklist.md
 │   └── usage-boundaries.md
 ├── templates/
 │   └── author-corpus/
-│       ├── raw/
-│       ├── _meta/
-│       ├── 语言DNA.md
-│       ├── 文章结构模板.md
-│       ├── 写作视角与认知框架.md
-│       ├── 视觉风格指南.md
-│       └── Writing-DNA.md
+│       ├── zh/                  # 中文模板与中文文件名
+│       └── en/                  # 英文模板与英文文件名
 └── examples/
     └── format-only/
 ```

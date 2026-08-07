@@ -3,6 +3,8 @@
 ## 仓库内容
 
 - [ ] 根目录包含 `SKILL.md`，可作为 Codex skill 被识别。
+- [ ] `templates/author-corpus/zh/` 和 `templates/author-corpus/en/` 都包含完整模板。
+- [ ] `SKILL.md` 和 `references/workflow.en.md` 的流程与质量标准保持一致。
 - [ ] `README.md` 说明语料要求：至少 20 篇完整文章。
 - [ ] 示例目录只演示格式，不暗示少量文章即可复刻风格。
 - [ ] 仓库不包含未经授权的原文语料、截图或私密内容。
@@ -15,6 +17,7 @@
 - [ ] 不再使用行业限定性描述。
 - [ ] 中文名统一为“写作蒸馏器.skill”。
 - [ ] 英文名统一为 `writing-dna-skill`。
+- [ ] 英文文档只引用英文产物文件名，中文文档只引用中文产物文件名。
 
 ## 发布建议
 

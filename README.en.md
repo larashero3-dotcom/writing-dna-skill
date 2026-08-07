@@ -36,6 +36,14 @@ The skill examines:
 - comparing how different authors approach the same topic
 - giving an AI agent more reliable context for style-consistent writing
 
+## Chinese And English Artifacts
+
+The skill keeps the conversation language separate from the artifact language. A user may speak Chinese while analyzing an English newsletter, or speak English while building a Chinese writing system.
+
+- Chinese artifacts use `templates/author-corpus/zh/` and Chinese filenames.
+- English artifacts use `templates/author-corpus/en/` and English filenames.
+- An explicit user choice takes priority. Otherwise, the source corpus determines the artifact language.
+
 ## What It Can Analyze
 
 The skill turns "style" from a vague impression into rules that can be recorded, reused, and checked. It looks beyond tone to understand why an article is written in a particular way, how evidence is organized, and how conclusions are formed.
@@ -53,12 +61,12 @@ If the source includes screenshots, illustrations, charts, or distinctive format
 
 | Layer | What It Analyzes | Output |
 | - | - | - |
-| **L1 Surface Language** | Word frequency, sentence length, punctuation, rhetoric, recurring expressions | `语言DNA.md` |
-| **L2 Article Structure** | Opening hook, body architecture, transitions, closing pattern | `文章结构模板.md` |
-| **L3 Topic Logic** | Timing, angle selection, topic priorities | `写作视角与认知框架.md` |
-| **L4 Source Strategy** | References, authorities, examples, and use of data | `写作视角与认知框架.md` |
-| **L5 Cognitive Frame** | Worldview, values, assumptions, and recurring propositions | `写作视角与认知框架.md` |
-| **L6 Visual Style** | Image strategy, formatting, typography hierarchy, and color | `视觉风格指南.md` |
+| **L1 Surface Language** | Word frequency, sentence length, punctuation, rhetoric, recurring expressions | `language-dna.md` |
+| **L2 Article Structure** | Opening hook, body architecture, transitions, closing pattern | `structure-patterns.md` |
+| **L3 Topic Logic** | Timing, angle selection, topic priorities | `cognitive-framework.md` |
+| **L4 Source Strategy** | References, authorities, examples, and use of data | `cognitive-framework.md` |
+| **L5 Cognitive Frame** | Worldview, values, assumptions, and recurring propositions | `cognitive-framework.md` |
+| **L6 Visual Style** | Image strategy, formatting, typography hierarchy, and color | `visual-style-guide.md` |
 
 In short:
 
@@ -84,10 +92,10 @@ A complete distillation normally follows six steps:
 
 1. **Collect the source corpus:** Gather at least 20 complete articles and place them in `raw/` or `raw-corpus/`.
 2. **Build metadata:** Record the title, date, article type, topic, hook, structure, and source strategy for each article in `_meta/`.
-3. **Analyze language DNA:** Measure word frequency, sentence length, punctuation, paragraph rhythm, recurring expressions, and mixed-language habits. Write `语言DNA.md`.
-4. **Extract structure patterns:** Mark openings, turns, body organization, and endings, then turn repeated article shapes into `文章结构模板.md`.
-5. **Identify cognitive frames:** Distill topic logic, source preferences, values, assumptions, and recurring propositions into `写作视角与认知框架.md`.
-6. **Document visual style:** When the corpus includes images or distinctive formatting, analyze image roles, screenshot evidence, typography, color, and text-image collaboration. Write `视觉风格指南.md`.
+3. **Analyze language DNA:** Measure word frequency, sentence length, punctuation, paragraph rhythm, recurring expressions, and mixed-language habits. Write `language-dna.md`.
+4. **Extract structure patterns:** Mark openings, turns, body organization, and endings, then turn repeated article shapes into `structure-patterns.md`.
+5. **Identify cognitive frames:** Distill topic logic, source preferences, values, assumptions, and recurring propositions into `cognitive-framework.md`.
+6. **Document visual style:** When the corpus includes images or distinctive formatting, analyze image roles, screenshot evidence, typography, color, and text-image collaboration. Write `visual-style-guide.md`.
 
 The agent then combines the results into `Writing-DNA.md`, the main document to reread before writing in the distilled style.
 
@@ -99,10 +107,10 @@ A complete project usually produces:
 author-or-publication/
 ├── raw/                    # Complete source articles
 ├── _meta/                  # Article-level metadata
-├── 语言DNA.md              # L1 analysis
-├── 文章结构模板.md          # L2 analysis
-├── 写作视角与认知框架.md    # L3-L5 analysis
-├── 视觉风格指南.md          # L6 analysis
+├── language-dna.md          # L1 analysis
+├── structure-patterns.md    # L2 analysis
+├── cognitive-framework.md   # L3-L5 analysis
+├── visual-style-guide.md    # L6 analysis
 └── Writing-DNA.md          # Integrated style document
 ```
 
@@ -113,12 +121,12 @@ author-or-publication/
 We recommend opening [`writing-dna-skill` directly on MoxtHub](https://moxt.ai/hub?view=skill&id=writing-dna-skill), where Moxt's large context window and AI-native file workflow make it easier for an agent to process complete long-form corpora.
 
 1. Collect or ask an agent to collect at least 20 complete articles and place them in `raw/` or `raw-corpus/`.
-2. Ask the agent to use `writing-dna-skill`, or to read `SKILL.md` and `写作蒸馏器.skill.md`, before processing the corpus.
+2. Ask the agent to use `writing-dna-skill`, or to read `SKILL.md` and `references/workflow.en.md`, before processing the corpus.
 3. Wait for the agent to produce:
-   - `语言DNA.md`
-   - `文章结构模板.md`
-   - `写作视角与认知框架.md`
-   - `视觉风格指南.md`
+   - `language-dna.md`
+   - `structure-patterns.md`
+   - `cognitive-framework.md`
+   - `visual-style-guide.md`
    - `Writing-DNA.md`
 4. Before future writing tasks, ask the agent to reread all distilled style documents.
 
@@ -135,14 +143,14 @@ For more consistent results, do not load the style documents only once. Before e
 1. Give the agent the topic, audience, purpose, and relevant context.
 2. Ask it to reread every distilled style document.
 3. Require the draft to follow the language, structure, cognitive, and visual rules.
-4. If the result does not feel accurate, ask the agent to audit the draft against `语言DNA.md`, `文章结构模板.md`, and `写作视角与认知框架.md`, then rewrite it.
+4. If the result does not feel accurate, ask the agent to audit the draft against `language-dna.md`, `structure-patterns.md`, and `cognitive-framework.md`, then rewrite it.
 
 Example:
 
 ```text
 Read every distilled style document in this author's directory, especially
-Writing-DNA.md, 语言DNA.md, 文章结构模板.md, 写作视角与认知框架.md,
-and 视觉风格指南.md.
+Writing-DNA.md, language-dna.md, structure-patterns.md,
+cognitive-framework.md, and visual-style-guide.md.
 
 Then write an article for the target audience using those rules.
 Topic: ...
@@ -170,19 +178,15 @@ writing-dna-skill/
 ├── LICENSE
 ├── agents/
 │   └── openai.yaml
-├── 写作蒸馏器.skill.md
+├── references/
+│   └── workflow.en.md
 ├── docs/
 │   ├── release-checklist.md
 │   └── usage-boundaries.md
 ├── templates/
 │   └── author-corpus/
-│       ├── raw/
-│       ├── _meta/
-│       ├── 语言DNA.md
-│       ├── 文章结构模板.md
-│       ├── 写作视角与认知框架.md
-│       ├── 视觉风格指南.md
-│       └── Writing-DNA.md
+│       ├── zh/                  # Chinese templates and filenames
+│       └── en/                  # English templates and filenames
 └── examples/
     └── format-only/
 ```
