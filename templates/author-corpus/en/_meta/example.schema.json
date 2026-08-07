@@ -1,0 +1,13 @@
+{
+  "title": "Article title",
+  "date": "YYYY-MM-DD",
+  "author": "Author or publication",
+  "column": "Series or column name",
+  "article_type": "interview | analysis | commentary | observation | review",
+  "topic_tags": ["tag-1", "tag-2"],
+  "hook_type": "question | scene | data | assertion | suspense",
+  "structure_pattern": "thesis-body-conclusion | chronology | comparison | Q&A",
+  "source_types": ["primary source", "public reference", "case comparison"],
+  "word_count": 0,
+  "notable": "Optional notable traits"
+}

@@ -1,18 +1,10 @@
-# 作者语料模板
+# Author Corpus Templates
 
-复制这个目录，为每个账号/作者建立一个独立语料库。
+Choose the template that matches the artifact language:
 
-建议结构：
+- `zh/`: Chinese document titles, instructions, and filenames.
+- `en/`: English document titles, instructions, and filenames.
 
-```text
-作者名称/
-├── raw/                    # 原始文章语料（.md 或 .txt）
-├── _meta/                  # 元数据标注
-├── 语言DNA.md
-├── 文章结构模板.md
-├── 写作视角与认知框架.md
-├── 视觉风格指南.md
-└── Writing-DNA.md
-```
+The artifact language may differ from the conversation language. Prefer the user's explicit choice; otherwise use the dominant language of the source corpus.
 
-真实蒸馏建议至少准备 20 篇完整文章。
+For a reliable distillation, prepare at least 20 complete articles.

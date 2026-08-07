@@ -1,48 +1,277 @@
 ---
 name: writing-dna-skill
-description: Distill reusable writing style rules from a corpus of complete articles. Use when the user wants to analyze at least 20 complete articles and extract language DNA, article structures, topic logic, material strategy, cognitive frame, visual style, and a Writing-DNA.md document for style-consistent writing.
+description: 从至少 20 篇完整文章中蒸馏可复用的写作 DNA，分析语言、文章结构、选题逻辑、素材策略、认知框架和视觉风格，并生成 Writing-DNA.md。用于中英文作者、账号、品牌或出版物的风格分析与一致性写作。 Distill reusable Writing DNA from at least 20 complete articles for Chinese or English authors, publications, brands, and accounts; use for language, structure, topic logic, source strategy, cognitive-frame, and visual-style analysis.
 ---
 
-# 写作蒸馏器
+# 写作蒸馏器.skill
 
-Use this skill to distill a reusable Writing DNA from a corpus of complete articles. Do not summarize the articles; extract the rules that make the writing style repeatable.
+> 英文名：`writing-dna-skill`
 
-## Corpus Requirements
+## 使用语言与模板
 
-Require enough source material before claiming a reliable style:
+将“对话语言”和“产物语言”分开处理：
 
-- Use at least 20 complete articles.
-- Use `.md` or `.txt` files in `raw/` or `raw-corpus/`.
-- Do not place unauthorized source articles in a public repository.
+1. 使用用户的对话语言进行交互，除非用户明确指定其他语言。
+2. 用户明确指定产物语言时，以用户选择为准。
+3. 未指定时，使用原始语料的主要语言。
+4. 语料混合且无法判断时，使用对话语言。
 
-If the corpus is small, explain that the output is only a format or workflow demo, not a reliable style distillation.
+中文产物使用 `templates/author-corpus/zh/`。英文产物使用 `templates/author-corpus/en/`，并按需读取 `references/workflow.en.md` 以获取英文文件名和表达规范。
 
-## Workflow
+| 分析产物 | 中文文件名 | 英文文件名 |
+| - | - | - |
+| L1 语言 DNA | `语言DNA.md` | `language-dna.md` |
+| L2 文章结构 | `文章结构模板.md` | `structure-patterns.md` |
+| L3-L5 认知框架 | `写作视角与认知框架.md` | `cognitive-framework.md` |
+| L6 视觉风格 | `视觉风格指南.md` | `visual-style-guide.md` |
+| 最终整合文档 | `Writing-DNA.md` | `Writing-DNA.md` |
 
-1. Inspect the corpus and create `_meta/` records for each article: title, date, author/account, article type, topic tags, hook type, structure pattern, source types, word count, and notable traits.
-2. Extract L1 surface language: frequent nouns, verbs, adverbs, sentence length, short/long sentence ratio, paragraph rhythm, punctuation, title style, and mixed-language habits. Write `语言DNA.md`.
-3. Extract L2 article structure: opening hook, first turn, body architecture, section rhythm, transition style, and ending pattern. Write `文章结构模板.md`.
-4. Extract L3-L5 thinking rules: topic selection logic, timing, angles, material strategy, preferred authority or evidence, recurring assumptions, values, and core propositions. Write `写作视角与认知框架.md`.
-5. Extract L6 visual style when the source contains images or formatting: image type, placement rhythm, screenshot/evidence role, typography hierarchy, emphasis, color, layout density, and text-image collaboration. Write `视觉风格指南.md`.
-6. Integrate the outputs into `Writing-DNA.md`, keeping it concise enough for an agent to reread before writing.
+下文中出现产物文件名时，始终根据已选定的产物语言使用上表对应的文件名。
 
-For image-heavy articles, open and inspect images. Screenshots, comments, charts, and conversation images may carry evidence that is not present in the text.
+## 一、目标
 
-## Output Files
+从某个账号/作者的历史文章中，提炼出可复用的**写作 DNA**——不是摘要，而是可操作的规则集，用于：
 
-Produce these files in the corpus directory:
+1. **理解** 该账号/作者的写作视角、选题逻辑、语言风格
+2. **复刻** 该账号/作者的写作风格（输出近似风格的文章）
+3. **对比** 不同账号/作者在同一议题上的表达差异
 
-```text
-_meta/
-语言DNA.md
-文章结构模板.md
-写作视角与认知框架.md
-视觉风格指南.md
-Writing-DNA.md
+---
+
+## 二、蒸馏的六个层次
+
+| 层次 | 分析对象 | 提取方法 | 输出形式 |
+| - | - | - | - |
+| **L1 表层语言** | 词频、句长、标点、修辞 | 脚本统计 | 词频表 + 句式清单 |
+| **L2 文章结构** | 开头 hook、正文架构、结尾收束 | 人工标注 | 结构模板（按类型分类） |
+| **L3 选题逻辑** | 发布时机、切入角度、话题优先级 | 归纳分类 | 选题判断树 |
+| **L4 素材策略** | 引用来源类型、权威对象选取标准、数据使用方式 | 阅读归纳 | 素材偏好清单 |
+| **L5 认知框架** | 作者的世界观、价值判断、对主题的核心假设 | 深度阅读 | 核心命题列表 |
+| **L6 视觉风格** | 配图策略、排版格式、字体层级、色彩使用 | 图文统计 + 截图采样 | 视觉风格指南 |
+
+> **原则**：L1-L2 是"怎么写"，L3-L5 是"怎么想"，L6 是"怎么呈现"。完整的风格复刻需要三者结合。
+
+### 跨层原则：图片内容必须纳入分析
+
+许多文章的图片不是装饰——截图、对话记录、数据表格、用户评论中的文字是论证链的一部分。分析时必须**打开图片查看内容**，否则会遗漏：
+
+- **L2 文章结构**：截图在叙事中的承重角色（转折点在截图里、证据链由截图构成）
+- **L4 素材策略**：截图是核心素材形式，精确数据往往只存在于图片中
+- **L6 视觉风格**：图片的功能分类（证据型/演示型/数据型/叙事推进型/情绪型）和图文协作模式
+
+**执行要求**：Step 3-6 的分析中，至少抽样 5-10 篇文章逐张查看图片内容，评估图片携带的实质性信息比例。
+
+---
+
+## 三、工作流程
+
+### Step 1：原始素材收集
+
+**目标**：建立该账号/作者的文章语料库
+
+- 收集渠道：公众号、博客、Newsletter、官网、社交平台等历史文章
+- 数量建议：至少 20 篇完整文章
+- 文件格式：`.md` 或 `.txt`，存入对应目录的 `raw/` 或 `raw-corpus/` 文件夹
+- 覆盖范围：尽量包含不同时期、不同类型的文章（访谈 / 深度 / 短评）
+
+**文件命名规范**：
+
+```
+YYYY-MM-DD 内容类型 文章标题-来源.md
 ```
 
-Use `templates/author-corpus/` as the recommended directory template. Read `写作蒸馏器.skill.md` for the full public-facing workflow when detailed instructions are needed.
+---
 
-## Writing With A Distilled Style
+### Step 2：元数据标注（`_meta/` 目录）
 
-Before writing in a distilled style, reread all style documents, especially `Writing-DNA.md`, `语言DNA.md`, `文章结构模板.md`, `写作视角与认知框架.md`, and `视觉风格指南.md`. Then follow the target style while avoiding misleading impersonation.
+为每篇文章创建元数据记录，字段如下：
+
+```json
+{
+  "title": "文章标题",
+  "date": "YYYY-MM-DD",
+  "author": "作者姓名",
+  "column": "内容系列名称",
+  "article_type": "访谈 | 深度分析 | 短评 | 观察 | 综述",
+  "topic_tags": ["AI", "创业", "商业模式"],
+  "hook_type": "问题式 | 场景式 | 数据式 | 观点式 | 悬念式",
+  "structure_pattern": "总-分-总 | 时间线 | 对比式 | Q&A",
+  "source_types": ["一手素材", "公开资料", "案例对比"],
+  "word_count": 3200,
+  "notable": "值得标注的特殊之处（可留空）"
+}
+```
+
+> 元数据是后续统计分析和规律归纳的基础，不可跳过。
+
+---
+
+### Step 3：脚本分析（L1 表层语言）
+
+运行以下分析，提取表层语言特征：
+
+**词频分析**
+
+- 高频名词（100 个）
+- 高频动词（50 个）
+- 高频副词（过度使用的副词 = 需要过滤的噪声）
+
+**句式分析**
+
+- 平均句长（字符数）
+- 短句（≤15字）占比
+- 长句（≥50字）占比
+- 段落平均句数
+
+**标点与格式**
+
+- 破折号 vs 括号的使用比
+- 引号使用场景
+- 小标题平均字数
+- 中英文混用模式
+
+**输出**：中文产物写入 `语言DNA.md`；英文产物写入 `language-dna.md`。内容包含词频表和句式规律总结。
+
+---
+
+### Step 4：结构标注（L2 文章结构）
+
+对每篇文章人工标注结构骨架，记录：
+
+```
+[开头 hook 类型] + [字数]
+→ [第一转折点/核心问题引入]
+→ [正文结构：总-分 / 对比 / 时间线 / Q&A]
+→ [结尾处理方式：收束 / 悬念 / 呼吁 / 自然结束]
+```
+
+归纳后，按**内容类型**整理为可复用的结构模板，例如：
+
+**访谈类模板**：
+
+```
+引题段（150-300字）
+  → 为什么此时此人值得聊（1句）
+  → 关键背景（2-3句）
+  → 本篇核心问题（1-2句）
+正文 Q&A
+  → 每个大话题前有小标题（4-8字）
+  → 每小节 3-6 轮对话
+结尾
+  → 多为自然收束，无刻意升华
+```
+
+**输出**：中文产物写入 `文章结构模板.md`；英文产物写入 `structure-patterns.md`。按内容类型分类。
+
+---
+
+### Step 5：选题与认知框架归纳（L3-L5）
+
+这是最需要深度阅读的部分，无法用脚本替代。
+
+**选题逻辑归纳**（L3）
+
+- 他们倾向于在什么时机切入？（早期判断 / 跟进分析 / 事后复盘）
+- 同一话题，他们的切入角度是什么？（当事人视角 / 读者视角 / 系统视角）
+- 什么类型的话题他们不写？
+
+**素材策略**（L4）
+
+- 主要依赖哪类素材？（一手观察 / 二手整理 / 数据引用）
+- 权威对象选取标准是什么？
+- 如何处理敏感或争议性信息？
+- **图片作为素材**：截图在论证中承担什么角色？（纯配图 vs 承重结构）精确数据是否只存在于截图中？图文之间的协作模式是什么？
+
+**认知框架**（L5）
+
+- 该账号/作者对主题的核心假设是什么？
+- 反复出现的核心命题（3-5 条）
+- 他们认为什么是"好对象"、"好作品"？
+
+**输出**：中文产物写入 `写作视角与认知框架.md`；英文产物写入 `cognitive-framework.md`。
+
+---
+
+### Step 6：视觉风格与排版分析（L6）
+
+这一层分析文章的视觉呈现——读者看到的不只是文字，还有图片节奏、字体层级、排版密度。风格复刻如果只复刻文字而忽略视觉，出来的东西"读着像但看着不像"。
+
+**配图策略**
+
+- 图文比：每篇文章平均配图数量、图片间距（每隔多少段落出现一张图）
+- 图片类型分布：界面截图 / 数据图表 / 人物照 / 概念示意图 / meme / 纯装饰
+- 首图风格：是否有封面图？风格是实拍、插画还是纯文字排版？
+- 图片来源模式：原创拍摄 / 官方素材 / 网络素材 / AI 生成
+- **图片功能分类**（需逐张查看图片内容）：证据型（社交截图/对话/评论）/ 演示型（界面/过程/代码输出）/ 数据型（排行榜/图表）/ 叙事推进型（故事转折在图中）/ 情绪型（meme）/ 权威型（论文/人物照）
+- **图文协作模式**：文字和图片如何分工？（引导语→截图→解读？截图即论证？文字概括+截图精确？）
+
+**排版格式**
+
+- 字号层级：正文字号、标题字号、引用/注释字号（从 HTML `font-size` 提取）
+- 加粗使用频率：每千字加粗次数、加粗用于强调关键词还是整句
+- 段落长度：平均段落字数、是否有刻意的短段落节奏（如一句一段）
+- 分隔方式：用小标题分段 / 用分隔线 / 用空行 / 用加粗句作为"隐性标题"
+
+**色彩与强调**
+
+- 是否使用彩色文字？用于什么场景？（重点标注 / 链接 / 引用）
+- 背景色块的使用：灰底引用框 / 高亮色块 / 代码块样式
+- 整体色调倾向：素净黑白 / 彩色活泼 / 深色主题
+
+**提取方法**
+
+- 如有原始 HTML：统计 `font-size`、`font-weight`、`color`、`background` 属性分布
+- 如仅有 Markdown：从 `**`（加粗）、`##`（标题）、`>`（引用）、`![]()`（图片）等标记提取排版规律
+- **必做**：抽样 5-10 篇文章逐张打开图片，分析图片功能类型和图文协作模式
+- 统计图片数量、位置分布、功能分类占比
+
+**输出**：中文产物写入 `视觉风格指南.md`；英文产物写入 `visual-style-guide.md`。内容包含配图策略、排版规律和色彩使用总结。
+
+---
+
+### Step 7：蒸馏产物整合
+
+将以上分析整合为一份可直接用于 AI 复刻的文档：
+
+```
+写作 DNA 文档（Writing-DNA.md）
+├── 语言特征（来自 L1）
+├── 结构模板（来自 L2，按类型分类）
+├── 选题判断标准（来自 L3）
+├── 素材使用规范（来自 L4）
+├── 核心认知框架（来自 L5）
+└── 视觉风格指南（来自 L6：配图策略 + 排版 + 色彩）
+```
+
+这份文档应满足：​**给任何一个没读过该账号/作者的人，他读完下笔能写出 70 分的近似风格文章——不仅文字像，视觉呈现也像。**
+
+---
+
+## 四、目录结构规范
+
+每个账号或作者目录建议采用以下结构。中文产物使用左侧文件名，英文产物使用括号中的英文文件名：
+
+```
+账号或作者名称/
+├── raw/                    # 原始文章语料（.md 格式）
+├── _meta/                  # 元数据标注（JSON 或 .md）
+├── 语言DNA.md              # English: language-dna.md
+├── 文章结构模板.md          # English: structure-patterns.md
+├── 写作视角与认知框架.md    # English: cognitive-framework.md
+├── 视觉风格指南.md          # English: visual-style-guide.md
+├── Writing-DNA.md          # 最终整合文档（可直接嵌入 skill）
+└── index.html              # 可选：可视化展示页面
+```
+
+---
+
+## 五、质量标准
+
+蒸馏产物完成后，用以下标准自检：
+
+- [ ] 给 AI 喂入 Writing-DNA.md，能否写出该账号/作者风格的文章（评分 ≥7/10）
+- [ ] L2 结构模板覆盖了该账号/作者至少 3 种内容类型
+- [ ] L5 认知框架提炼出至少 3 条非显而易见的核心命题
+- [ ] 元数据覆盖至少 80% 的语料文章
+- [ ] L6 视觉分析覆盖配图策略、排版格式、色彩使用三个维度
+- [ ] Writing-DNA.md 单文档字数控制在 4000 字以内（过长 = 没蒸馏干净）
