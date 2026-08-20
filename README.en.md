@@ -156,6 +156,24 @@ Then write an article for the target audience using those rules.
 Topic: ...
 ```
 
+## After Writing: Removing AI Tone
+
+However accurate the distillation, model output often still reads as machine-written. These are two separate problems. Distillation addresses *does this sound like the author*, while AI tone is *does this sound like a machine*. The style can be right while "it's not A, but B" keeps recurring, every subheading is numbered "one, two, three", and paragraphs open with a bare comment like "Sounds like...".
+
+`skills/lieflat-less-ai-tone/` is the final step in the workflow, clearing those tells against an explicit rule list. It installs together with this repository; no extra step is needed.
+
+Then:
+
+```text
+Apply the lieflat-less-ai-tone rules to the article you just wrote.
+Read this author's language-dna.md first; where they conflict, the distilled
+artifacts win.
+```
+
+It rewrites from a whitelist, touching only the listed problems; sentences matching no rule are preserved verbatim, and the article's structure is left intact. Every rule has a locatable trigger and was measured against 300 AI outputs and 329 human articles, rather than resting on "this reads like AI". Full methodology, data, and the fifteen hypotheses that failed are documented in [lieflat-less-ai-tone](https://github.com/larashero3-dotcom/lieflat-less-ai-tone).
+
+Key point: **where the distilled artifacts conflict with the AI-tone rules, the artifacts win.** That is how the target author actually writes, not a machine tell. If an author genuinely favors em dashes, a generic rule should not strip them.
+
 ## Why It Works
 
 The skill separates writing style into layers that an agent can inspect, execute, and audit. Instead of relying on a vague impression of similarity, it records explicit style rules and directs the agent's attention back to them before each writing task.
@@ -187,6 +205,8 @@ writing-dna-skill/
 │   └── author-corpus/
 │       ├── zh/                  # Chinese templates and filenames
 │       └── en/                  # English templates and filenames
+├── skills/
+│   └── lieflat-less-ai-tone/    # AI-tone rules (installed with this repo)
 └── examples/
     └── format-only/
 ```

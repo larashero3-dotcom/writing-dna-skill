@@ -10,3 +10,7 @@ private/
 
 # Generated local outputs
 *.log
+output/
+__pycache__/
+*.pyc
+.playwright-cli/
