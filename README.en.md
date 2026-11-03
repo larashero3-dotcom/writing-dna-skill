@@ -2,8 +2,6 @@
 
 [中文](README.md) | English
 
-![Writing DNA Distiller: distill any author's writing style into reusable Writing DNA for AI agents](assets/writing-dna-hero-en.png)
-
 Skill name: `writing-dna-skill`
 
 An agent skill for distilling the writing style of any author or publication into reusable rules.

@@ -2,8 +2,6 @@
 
 中文 | [English](README.en.md)
 
-![写作蒸馏器.skill：将任意作者的写作风格蒸馏成 Agent 可复用的 Writing DNA](assets/writing-dna-hero-zh.png)
-
 英文名：`writing-dna-skill`
 
 我们的宗旨是：快乐写作。
