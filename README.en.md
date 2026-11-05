@@ -192,6 +192,7 @@ writing-dna-skill/
 ├── README.md
 ├── README.en.md
 ├── LICENSE
+├── NOTICE
 ├── agents/
 │   └── openai.yaml
 ├── references/
@@ -211,4 +212,6 @@ writing-dna-skill/
 
 ## License
 
-MIT
+The current version is licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE) for noncommercial purposes only. Personal study, research, and other uses permitted by that license are allowed. Using this project in a commercial product, paid service, or for-profit organization's business, including embedding it in an agent product, requires a separate commercial license. Contact the repository maintainer for commercial licensing.
+
+Copyright is not transferred by a usage license. Versions previously released under MIT remain available under their original terms; this change does not revoke rights already granted for those versions. See the [MIT license at the commit before this change](https://github.com/larashero3-dotcom/writing-dna-skill/blob/9e780d0/LICENSE).

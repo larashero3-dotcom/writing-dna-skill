@@ -181,7 +181,7 @@ Make 写作 Happy Again ！
 
 这个项目用于学习、分析、风格研究和个人写作资产沉淀。请不要用于冒充作者本人、误导读者，或侵犯他人版权。
 
-开源仓库不应包含未经授权的原文语料。你可以放目录模板、字段模板、说明文档和自己拥有版权的示例文本。
+公开仓库不应包含未经授权的原文语料。你可以放目录模板、字段模板、说明文档和自己拥有版权的示例文本。
 
 ## 文件结构
 
@@ -191,6 +191,7 @@ writing-dna-skill/
 ├── README.md
 ├── README.en.md
 ├── LICENSE
+├── NOTICE
 ├── agents/
 │   └── openai.yaml
 ├── references/
@@ -208,6 +209,8 @@ writing-dna-skill/
     └── format-only/
 ```
 
-## License
+## 授权协议
 
-MIT
+当前版本采用 [PolyForm Noncommercial License 1.0.0](LICENSE)，仅授权非商业用途。个人学习、研究及其他符合协议的非商业使用可以按协议使用；将本项目用于商业产品、付费服务或营利性组织的业务，包括集成到 Agent 产品中，需要另行取得商业授权。商业授权请联系仓库维护者。
+
+著作权不因取得使用授权而转移。之前已按 MIT 协议发布的版本继续受其原有协议约束；本次变更不撤销那些版本已经授予的权利。参见变更前的 [MIT 协议版本](https://github.com/larashero3-dotcom/writing-dna-skill/blob/9e780d0/LICENSE)。
