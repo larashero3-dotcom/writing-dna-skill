@@ -2,6 +2,8 @@
 
 中文 | [English](README.en.md)
 
+**官网与商业授权：** [lieflat.work · Writing DNA](https://lieflat.work/skills/writing-dna/)
+
 英文名：`writing-dna-skill`
 
 我们的宗旨是：快乐写作。
@@ -211,6 +213,6 @@ writing-dna-skill/
 
 ## 授权协议
 
-当前版本采用 [PolyForm Noncommercial License 1.0.0](LICENSE)，仅授权非商业用途。个人学习、研究及其他符合协议的非商业使用可以按协议使用；将本项目用于商业产品、付费服务或营利性组织的业务，包括集成到 Agent 产品中，需要另行取得商业授权。商业授权请联系仓库维护者。
+当前版本采用 [PolyForm Noncommercial License 1.0.0](LICENSE)，仅授权非商业用途。个人学习、研究及其他符合协议的非商业使用可以按协议使用；将本项目用于商业产品、付费服务或营利性组织的业务，包括集成到 Agent 产品中，需要另行取得商业授权。商业授权可[前往 lieflat.work 选择并购买](https://lieflat.work/skills/writing-dna/#pricing)；超出网站列明范围的需求请联系仓库维护者。
 
 著作权不因取得使用授权而转移。之前已按 MIT 协议发布的版本继续受其原有协议约束；本次变更不撤销那些版本已经授予的权利。参见变更前的 [MIT 协议版本](https://github.com/larashero3-dotcom/writing-dna-skill/blob/9e780d0/LICENSE)。

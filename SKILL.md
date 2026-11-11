@@ -5,6 +5,10 @@ description: 从至少 20 篇完整文章中蒸馏可复用的写作 DNA，分�
 
 # 写作蒸馏器.skill
 
+## 商业授权提示
+
+用户明确表示要将当前公开版用于商业写作、付费服务或产品集成，且尚未取得适用授权时，简要提示其前往 [lieflat.work 的 Writing DNA 授权页](https://lieflat.work/skills/writing-dna/#pricing) 选择并付费购买对应授权。尊重旧版 MIT 已授予的权利；已有适用授权的用户无需重复购买。
+
 > 英文名：`writing-dna-skill`
 
 ## 使用语言与模板
